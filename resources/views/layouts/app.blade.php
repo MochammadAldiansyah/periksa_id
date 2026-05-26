@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="csrf-token" content="{{ csrf_token() }}">
@@ -14,10 +13,11 @@
         <!-- Scripts -->
         {{-- @vite(['resources/css/app.css', 'resources/js/app.js']) --}}
          <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+         <link rel="stylesheet" href="{{ asset('assets/css/main.css') }}">
     </head>
-    <body class="font-sans antialiased">
-        <div class="min-h-screen bg-gray-100 dark:bg-gray-900">
-            @include('layouts.navigation')
+    <body>
+        <div >
+            @include('layouts.navbar')
 
             {{-- <!-- Page Heading -->
             @isset($header)
@@ -34,4 +34,5 @@
             </main>
         </div>
     </body>
+    <script src="{{ asset('assets/js/main.js') }}"></script>
 </html>
