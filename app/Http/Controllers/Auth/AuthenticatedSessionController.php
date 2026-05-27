@@ -20,6 +20,7 @@ class AuthenticatedSessionController extends Controller
     }
 
     /**
+    /**
      * Handle an incoming authentication request.
      */
     public function store(LoginRequest $request): RedirectResponse
@@ -28,8 +29,25 @@ class AuthenticatedSessionController extends Controller
 
         $request->session()->regenerate();
 
-        return redirect()->intended(route('dashboard', absolute: false));
-    }
+        // ---- PROSES CEK ROLE DAN REDIRECT DI SINI ----
+      // ---- PROSES CEK ROLE DAN REDIRECT DI SINI ----
+        $user = Auth::user();
+
+        if ($user->hasRole('admin')) {
+            return redirect()->route('admin.dashboard');
+        }
+
+        if ($user->hasRole('dokter')) {
+            return redirect()->route('dokter.dashboard');
+        }
+
+        if ($user->hasRole('pasien')) {
+            return redirect()->route('pasien.dashboard');
+        }
+
+        // Jalur alternatif jika ada user biasa tanpa role khusus
+        return redirect()->route('dashboard');    }
+
 
     /**
      * Destroy an authenticated session.

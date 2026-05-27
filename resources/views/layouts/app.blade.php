@@ -16,6 +16,10 @@
          <link rel="stylesheet" href="{{ asset('assets/css/main.css') }}">
     </head>
     <body>
+@auth
+    @include('layouts.sidebar')
+@endauth
+
         <div>
            @if(!request()->routeIs('login') && !request()->routeIs('register'))
             @include('layouts.navbar')
