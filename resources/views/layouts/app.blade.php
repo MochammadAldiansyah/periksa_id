@@ -16,8 +16,10 @@
          <link rel="stylesheet" href="{{ asset('assets/css/main.css') }}">
     </head>
     <body>
-        <div >
+        <div>
+           @if(!request()->routeIs('login') && !request()->routeIs('register'))
             @include('layouts.navbar')
+            @endif
 
             {{-- <!-- Page Heading -->
             @isset($header)
@@ -34,5 +36,9 @@
             </main>
         </div>
     </body>
+  @if(!request()->routeIs('login') && !request()->routeIs('register'))
+
+    @include('layouts.footer')
+    @endif)
     <script src="{{ asset('assets/js/main.js') }}"></script>
 </html>

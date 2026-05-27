@@ -18,8 +18,8 @@
       </div>
 
       <div class="hidden md:flex items-center">
-        <a href="#" class="bg-[#0046A0] hover:bg-[#003780] text-white px-6 py-2.5 rounded-xl font-medium tracking-wide transition-colors text-sm">
-          Masuk / Daftar
+        <a href="{{ route('login') }}" class="bg-[#0046A0] hover:bg-[#003780] text-white px-6 py-2.5 rounded-xl font-medium tracking-wide transition-colors text-sm">
+          Masuk
         </a>
       </div>
 
@@ -41,8 +41,8 @@
     <a href="#" class="block text-gray-600 hover:text-[#0046A0] hover:bg-gray-50 px-3 py-2 rounded-lg transition-colors">Rumah Sakit</a>
     <a href="#" class="block text-gray-600 hover:text-[#0046A0] hover:bg-gray-50 px-3 py-2 rounded-lg transition-colors">Informasi Kesehatan</a>
     <div class="pt-4 border-t border-gray-100">
-      <a href="#" class="block text-center bg-[#0046A0] hover:bg-[#003780] text-white px-6 py-2.5 rounded-xl font-medium transition-colors">
-        Masuk / Daftar
+      <a href="{{ route('login') }}" class="block text-center bg-[#0046A0] hover:bg-[#003780] text-white px-6 py-2.5 rounded-xl font-medium transition-colors">
+        Masuk
       </a>
     </div>
   </div>
