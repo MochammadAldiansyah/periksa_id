@@ -117,13 +117,6 @@
                 <div class="flex-grow border-t border-gray-100"></div>
             </div>
 
-            <button type="button" class="w-full border border-gray-200 hover:bg-gray-50 text-gray-700 py-3 rounded-xl text-sm font-semibold transition-all flex items-center justify-center gap-3 bg-white shadow-sm">
-                <svg class="w-4 h-4" viewBox="0 0 24 24">
-                    <path fill="#EA4335" d="M12.24 10.285V14.4h6.887c-.275 1.565-1.88 4.604-6.887 4.604-4.33 0-7.866-3.577-7.866-8s3.536-8 7.866-8c2.46 0 4.105 1.025 5.047 1.926l3.256-3.133C18.444 1.155 15.567 0 12.24 0c-6.63 0-12 5.37-12 12s5.37 12 12 12c6.923 0 11.52-4.874 11.52-11.72 0-.788-.085-1.39-.189-1.995H12.24z"/>
-                </svg>
-                Lanjutkan dengan Google
-            </button>
-
             <p class="text-center text-xs text-gray-400 font-medium">
                 Belum punya akun? <a href="{{ route('register') }}" class="text-[#0046A0] font-bold hover:underline">Daftar di sini</a>
             </p>

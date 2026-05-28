@@ -8,19 +8,43 @@
         </a>
 
         <div class="hidden md:flex items-center gap-6 text-[15px] font-medium text-gray-600">
-          <a href="#" class="text-[#0046A0] font-semibold border-b-2 border-[#0046A0] pb-1 transition-all">
+          <a href="/" 
+             class="{{ request()->routeIs('home') || request()->path() == '/' ? 'text-[#0046A0] font-semibold border-b-2 border-[#0046A0]' : 'hover:text-[#0046A0]' }} pb-1 transition-all">
             Layanan
           </a>
-          <a href="#" class="hover:text-[#0046A0] transition-colors">Cari Dokter</a>
+          
+          <a href="{{ route('cari-dokter.index') }}" 
+             class="{{ request()->routeIs('cari-dokter.*') ? 'text-[#0046A0] font-semibold border-b-2 border-[#0046A0]' : 'hover:text-[#0046A0]' }} pb-1 transition-all">
+            Cari Dokter
+          </a>
+          
           <a href="#" class="hover:text-[#0046A0] transition-colors">Rumah Sakit</a>
           <a href="#" class="hover:text-[#0046A0] transition-colors">Informasi Kesehatan</a>
         </div>
       </div>
 
       <div class="hidden md:flex items-center">
-        <a href="{{ route('login') }}" class="bg-[#0046A0] hover:bg-[#003780] text-white px-6 py-2.5 rounded-xl font-medium tracking-wide transition-colors text-sm">
-          Masuk
-        </a>
+        @auth
+            {{-- Jika sudah login, tampilkan tombol Dashboard --}}
+            @if(auth()->user()->hasRole('admin'))
+                <a href="{{ route('admin.dashboard') }}" class="bg-[#0046A0] hover:bg-[#003780] text-white px-6 py-2.5 rounded-xl font-medium transition-colors text-sm">
+                    Dashboard Admin
+                </a>
+            @elseif(auth()->user()->hasRole('dokter'))
+                <a href="{{ route('dokter.dashboard') }}" class="bg-emerald-600 hover:bg-emerald-700 text-white px-6 py-2.5 rounded-xl font-medium transition-colors text-sm">
+                    Dashboard Dokter
+                </a>
+            @else
+                <a href="{{ route('pasien.dashboard') }}" class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2.5 rounded-xl font-medium transition-colors text-sm">
+                    Dashboard Pasien
+                </a>
+            @endif
+        @else
+            {{-- Jika belum login, tampilkan Masuk --}}
+            <a href="{{ route('login') }}" class="bg-[#0046A0] hover:bg-[#003780] text-white px-6 py-2.5 rounded-xl font-medium tracking-wide transition-colors text-sm">
+                Masuk
+            </a>
+        @endauth
       </div>
 
       <div class="md:hidden flex items-center">
@@ -36,17 +60,29 @@
   </div>
 
   <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-100 px-4 pt-2 pb-6 space-y-3 shadow-lg">
-    <a href="#" class="block text-[#0046A0] font-semibold bg-blue-50 px-3 py-2 rounded-lg">Layanan</a>
-    <a href="#" class="block text-gray-600 hover:text-[#0046A0] hover:bg-gray-50 px-3 py-2 rounded-lg transition-colors">Cari Dokter</a>
+    <a href="/" class="block px-3 py-2 rounded-lg transition-colors {{ request()->routeIs('home') || request()->path() == '/' ? 'text-[#0046A0] font-semibold bg-blue-50' : 'text-gray-600 hover:text-[#0046A0] hover:bg-gray-50' }}">Layanan</a>
+    
+    <a href="{{ route('cari-dokter.index') }}" class="block px-3 py-2 rounded-lg transition-colors {{ request()->routeIs('cari-dokter.*') ? 'text-[#0046A0] font-semibold bg-blue-50' : 'text-gray-600 hover:text-[#0046A0] hover:bg-gray-50' }}">Cari Dokter</a>
+    
     <a href="#" class="block text-gray-600 hover:text-[#0046A0] hover:bg-gray-50 px-3 py-2 rounded-lg transition-colors">Rumah Sakit</a>
     <a href="#" class="block text-gray-600 hover:text-[#0046A0] hover:bg-gray-50 px-3 py-2 rounded-lg transition-colors">Informasi Kesehatan</a>
+    
     <div class="pt-4 border-t border-gray-100">
-      <a href="{{ route('login') }}" class="block text-center bg-[#0046A0] hover:bg-[#003780] text-white px-6 py-2.5 rounded-xl font-medium transition-colors">
-        Masuk
-      </a>
+        @auth
+            @if(auth()->user()->hasRole('admin'))
+                <a href="{{ route('admin.dashboard') }}" class="block text-center bg-[#0046A0] text-white px-6 py-2.5 rounded-xl font-medium">Dashboard Admin</a>
+            @elseif(auth()->user()->hasRole('dokter'))
+                <a href="{{ route('dokter.dashboard') }}" class="block text-center bg-emerald-600 text-white px-6 py-2.5 rounded-xl font-medium">Dashboard Dokter</a>
+            @else
+                <a href="{{ route('pasien.dashboard') }}" class="block text-center bg-blue-600 text-white px-6 py-2.5 rounded-xl font-medium">Dashboard Pasien</a>
+            @endif
+        @else
+            <a href="{{ route('login') }}" class="block text-center bg-[#0046A0] hover:bg-[#003780] text-white px-6 py-2.5 rounded-xl font-medium transition-colors">
+                Masuk
+            </a>
+        @endauth
     </div>
   </div>
 </nav>
 
 <div class="h-20"></div>
-

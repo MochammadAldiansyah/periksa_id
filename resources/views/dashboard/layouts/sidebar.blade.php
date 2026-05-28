@@ -22,29 +22,105 @@
             </button>
         </div>
 
-        <nav class="space-y-1.5">
-           @hasrole('dokter')
-                <a href="{{ route('dashboard') }}" class="flex items-center gap-3 {{ request()->routeIs('dashboard') ? 'bg-[#0046A0] text-white shadow-sm shadow-blue-200' : 'text-slate-500 hover:text-[#0046A0] hover:bg-slate-50' }} px-4 py-3 rounded-xl font-semibold text-sm transition-all">
-                    Dashboard Dokter
-                </a>
-           @endhasrole
+   <nav class="space-y-1.5">
+    @hasrole('dokter')
+        <a href="{{ route('dashboard') }}" class="flex items-center gap-3 {{ request()->routeIs('dashboard') ? 'bg-[#0046A0] text-white shadow-sm shadow-blue-200' : 'text-slate-500 hover:text-[#0046A0] hover:bg-slate-50' }} px-4 py-3 rounded-xl font-semibold text-sm transition-all">
+            <!-- Icon Dashboard Dokter -->
+            <svg class="w-5 h-5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
+            </svg>
+            <span>Dashboard Dokter</span>
+        </a>
+    @endhasrole
 
-          @hasrole('admin')
-                <a href="{{ route('admin.dashboard') }}" class="flex items-center gap-3 {{ request()->routeIs('dashboard') ? 'bg-[#0046A0] text-white shadow-sm shadow-blue-200' : 'text-slate-500 hover:text-[#0046A0] hover:bg-slate-50' }} px-4 py-3 rounded-xl font-semibold text-sm transition-all">
-                    Ringkasan
-                </a>
-                <a href="{{ route('admin.dokter.create') }}" class="flex items-center gap-3 text-slate-500 hover:text-[#0046A0] hover:bg-slate-50 px-4 py-3 rounded-xl font-medium text-sm transition-all">
-                    Tambah Dokter
-                </a>
-                <a href="{{ route('admin.users.index') }}" class="flex items-center gap-3 text-slate-500 hover:text-[#0046A0] hover:bg-slate-50 px-4 py-3 rounded-xl font-medium text-sm transition-all">Manajemen User</a>
-          @endhasrole
+    @hasrole('admin')
+        <!-- Ringkasan / Dashboard Admin -->
+        <a href="{{ route('admin.dashboard') }}" class="flex items-center gap-3 {{ request()->routeIs('dashboard') ? 'bg-[#0046A0] text-white shadow-sm shadow-blue-200' : 'text-slate-500 hover:text-[#0046A0] hover:bg-slate-50' }} px-4 py-3 rounded-xl font-semibold text-sm transition-all">
+            <!-- Icon Ringkasan -->
+            <svg class="w-5 h-5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
+            </svg>
+            <span>Ringkasan</span>
+        </a>
+        
+        <!-- Tambah Dokter -->
+        <a href="{{ route('admin.dokter.create') }}" class="flex items-center gap-3 text-slate-500 hover:text-[#0046A0] hover:bg-slate-50 px-4 py-3 rounded-xl font-medium text-sm transition-all">
+            <!-- Icon Tambah Dokter -->
+            <svg class="w-5 h-5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18 9v3m0 0v3m0-3h3m-3 0h-3m-2-5a4 4 0 11-8 0 4 4 0 018 0zM3 20a6 6 0 0112 0v1H3v-1z"></path>
+            </svg>
+            <span>Tambah Dokter</span>
+        </a>
+        
+        <!-- Manajemen User -->
+        <a href="{{ route('admin.users.index') }}" class="flex items-center gap-3 text-slate-500 hover:text-[#0046A0] hover:bg-slate-50 px-4 py-3 rounded-xl font-medium text-sm transition-all">
+            <!-- Icon Manajemen User -->
+            <svg class="w-5 h-5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"></path>
+            </svg>
+            <span>Manajemen User</span>
+        </a>
+        
+        <!-- Forum -->
+        <a href="{{ route('forum.index') }}" class="flex items-center gap-3 text-slate-500 hover:text-[#0046A0] hover:bg-slate-50 px-4 py-3 rounded-xl font-medium text-sm transition-all">
+            <!-- Icon Forum -->
+            <svg class="w-5 h-5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8h2a2 2 0 012 2v6a2 2 0 01-2 2h-2v4l-4-4H9a1.994 1.994 0 01-1.414-.586m0 0L11 14h4a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2v4l.586-.586z"></path>
+            </svg>
+            <span>Forum</span>
+        </a>
+    @endhasrole
 
-          @hasrole('pasien')
-                <a href="{{ route('dashboard') }}" class="flex items-center gap-3 {{ request()->routeIs('dashboard') ? 'bg-[#0046A0] text-white shadow-sm shadow-blue-200' : 'text-slate-500 hover:text-[#0046A0] hover:bg-slate-50' }} px-4 py-3 rounded-xl font-semibold text-sm transition-all">
-                    Dashboard Pasien
-                </a>
-          @endhasrole
-        </nav>
+    @hasrole('pasien')
+        <!-- Dashboard Pasien -->
+        <a href="{{ route('dashboard') }}" class="flex items-center gap-3 px-4 py-3 rounded-xl font-semibold text-sm transition-all {{ request()->routeIs('dashboard') ? 'bg-[#0046A0] text-white shadow-sm shadow-blue-200' : 'text-slate-500 hover:text-[#0046A0] hover:bg-slate-50' }}">
+            <svg class="w-5 h-5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path>
+            </svg>
+            <span>Dashboard Pasien</span>
+        </a>
+
+        <!-- Konsultasi -->
+        <a href="#" class="flex items-center gap-3 px-4 py-3 rounded-xl font-semibold text-sm transition-all {{ request()->routeIs('pasien.konsultasi*') ? 'bg-[#0046A0] text-white shadow-sm shadow-blue-200' : 'text-slate-500 hover:text-[#0046A0] hover:bg-slate-50' }}">
+            <svg class="w-5 h-5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path>
+            </svg>
+            <span>Konsultasi</span>
+        </a>
+
+        <!-- Rekam Medis -->
+        <a href="#" class="flex items-center gap-3 px-4 py-3 rounded-xl font-semibold text-sm transition-all {{ request()->routeIs('pasien.rekam-medis*') ? 'bg-[#0046A0] text-white shadow-sm shadow-blue-200' : 'text-slate-500 hover:text-[#0046A0] hover:bg-slate-50' }}">
+            <svg class="w-5 h-5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+            </svg>
+            <span>Rekam Medis</span>
+        </a>
+
+        <!-- Farmasi -->
+        <a href="#" class="flex items-center gap-3 px-4 py-3 rounded-xl font-semibold text-sm transition-all {{ request()->routeIs('pasien.farmasi*') ? 'bg-[#0046A0] text-white shadow-sm shadow-blue-200' : 'text-slate-500 hover:text-[#0046A0] hover:bg-slate-50' }}">
+            <svg class="w-5 h-5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"></path>
+            </svg>
+            <span>Farmasi</span>
+        </a>
+
+        <!-- Pembayaran -->
+        <a href="#" class="flex items-center gap-3 px-4 py-3 rounded-xl font-semibold text-sm transition-all {{ request()->routeIs('pasien.pembayaran*') ? 'bg-[#0046A0] text-white shadow-sm shadow-blue-200' : 'text-slate-500 hover:text-[#0046A0] hover:bg-slate-50' }}">
+            <svg class="w-5 h-5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z"></path>
+            </svg>
+            <span>Pembayaran</span>
+        </a>
+
+        <!-- Notifikasi -->
+        <a href="#" class="flex items-center gap-3 px-4 py-3 rounded-xl font-semibold text-sm transition-all {{ request()->routeIs('pasien.notifikasi*') ? 'bg-[#0046A0] text-white shadow-sm shadow-blue-200' : 'text-slate-500 hover:text-[#0046A0] hover:bg-slate-50' }}">
+            <svg class="w-5 h-5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"></path>
+            </svg>
+            <span>Notifikasi</span>
+        </a>
+    @endhasrole
+</nav>
     </div>
 
    <div class="space-y-1.5 pt-6 border-t border-slate-100">
