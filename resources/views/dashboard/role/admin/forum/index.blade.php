@@ -22,11 +22,11 @@
     {{-- Filter, Search, and Table Wrapper --}}
     <div class="bg-white border border-slate-100 rounded-2xl shadow-sm overflow-hidden">
 
-        <form method="GET" action="{{ route('admin.forum.index') }}"
+        <form method="GET" action="{{ route('forum.index') }}"
             class="p-5 border-b border-slate-50 bg-slate-50/30 flex flex-col md:flex-row md:items-center justify-between gap-4">
 
             <div class="flex justify-end mb-4 md:mb-0">
-                <a href="{{ route('admin.forum.create') }}"
+                <a href="{{ route('forum.create') }}"
                     class="bg-[#0046A0] hover:bg-blue-800 text-white font-bold text-xs px-4 py-2.5 rounded-xl transition-all">
                     + New Thread
                 </a>
@@ -92,6 +92,7 @@
                                     View
                                 </button>
 
+                                @hasrole('admin')
                                 {{-- Form Delete ditaruh langsung di sini agar mengunci Route Laravel dengan aman --}}
                                 <form action="{{ route('admin.forum.destroy', $thread->id) }}" method="POST" onsubmit="return confirm('Apakah Anda yakin ingin menghapus thread ini?')">
                                     @csrf
@@ -100,6 +101,7 @@
                                         Delete
                                     </button>
                                 </form>
+                                @endhasrole
                             </td>
                         </tr>
                     @empty

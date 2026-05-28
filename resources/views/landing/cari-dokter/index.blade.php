@@ -7,12 +7,21 @@
     <section class="grid grid-cols-1 lg:grid-cols-3 gap-6">
         @foreach($dokters as $dokter)
         <div class="bg-white border border-gray-100 rounded-3xl p-6 shadow-sm flex flex-col justify-between gap-4">
-            <div>
-                <h4 class="text-base font-bold text-gray-900">{{ $dokter->name }}</h4>
-                <p class="text-xs font-semibold text-[#0046A0]">{{ $dokter->getRoleNames()->first() }}</p>
+            <div class="flex items-center gap-4">
+                <div class="w-14 h-14 rounded-full bg-blue-50 border border-blue-100 flex items-center justify-center text-[#0046A0] font-bold text-xl overflow-hidden shrink-0">
+                    @if ($dokter->avatar)
+                        <img src="{{ asset('storage/' . $dokter->avatar) }}" alt="{{ $dokter->name }}" class="w-full h-full object-cover">
+                    @else
+                        <span>{{ strtoupper(substr($dokter->name, 0, 2)) }}</span>
+                    @endif
+                </div>
+                <div>
+                    <h4 class="text-base font-bold text-gray-900">{{ $dokter->name }}</h4>
+                    <p class="text-xs font-semibold text-[#0046A0]">{{ $dokter->getRoleNames()->first() }}</p>
+                </div>
             </div>
             
-         <button onclick="cekDetail({{ $dokter->id }}, '{{ $dokter->name }}', '{{ $dokter->getRoleNames()->first() }}', {{ auth()->check() ? 'true' : 'false' }})" 
+         <button onclick="cekDetail({{ $dokter->id }}, '{{ addslashes($dokter->name) }}', '{{ $dokter->getRoleNames()->first() }}', '{{ $dokter->avatar ? asset('storage/' . $dokter->avatar) : '' }}', {{ auth()->check() ? 'true' : 'false' }})" 
         class="w-full bg-[#0046A0] hover:bg-[#003780] text-white text-xs font-medium py-3 rounded-xl transition-all">
     Lihat Detail
 </button>
@@ -31,17 +40,29 @@
             </div>
 
             <div class="flex-1 p-6 space-y-6">
-                <h3 id="modal-nama" class="text-lg font-bold"></h3>
-                <p id="modal-spesialis" class="text-sm text-gray-600"></p>
+                <div class="flex items-center gap-5">
+                    <div class="w-20 h-20 rounded-full bg-blue-50 border border-blue-100 flex items-center justify-center text-[#0046A0] font-bold text-3xl overflow-hidden shrink-0">
+                        <span id="modal-avatar-initials"></span>
+                        <img id="modal-avatar-img" src="" alt="Dokter" class="w-full h-full object-cover hidden">
+                    </div>
+                    <div>
+                        <h3 id="modal-nama" class="text-lg font-bold"></h3>
+                        <p id="modal-spesialis" class="text-sm text-gray-600"></p>
+                    </div>
+                </div>
             </div>
 
             <div class="p-6 border-t shrink-0">
                 @auth
                     @if(auth()->user()->hasRole('pasien'))
-                        <form action="{{ route('janji.store') }}" method="POST" class="w-full">
+                        <form action="{{ route('janji.store') }}" method="POST" class="w-full space-y-3">
                             @csrf
                             <input type="hidden" id="modal-dokter-id" name="dokter_id">
-                            <button type="submit" class="w-full bg-[#0046A0] text-white py-4 rounded-xl">📅 Buat Janji Temu</button>
+                            <div>
+                                <label class="block text-sm font-bold text-gray-700 mb-1">Keluhan Anda</label>
+                                <textarea name="keluhan" rows="3" placeholder="Tuliskan keluhan atau alasan konsultasi Anda..." class="w-full border border-gray-200 rounded-xl p-3 text-sm focus:ring-[#0046A0] focus:border-[#0046A0] resize-none"></textarea>
+                            </div>
+                            <button type="submit" class="w-full bg-[#0046A0] text-white py-4 rounded-xl font-bold hover:bg-[#003780] transition-all">📅 Buat Janji Temu</button>
                         </form>
                     @else
                         <p class="text-center text-sm text-gray-500">Anda tidak bisa membuat janji.</p>

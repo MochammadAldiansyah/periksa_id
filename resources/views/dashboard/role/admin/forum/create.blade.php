@@ -3,7 +3,7 @@
 @section('content')
 <div class="max-w-4xl mx-auto">
     <h1 class="text-2xl font-bold mb-6">Create New Thread</h1>
-    <form action="{{ route('admin.forum.store') }}" method="POST" class="bg-white p-6 rounded-2xl border shadow-sm">
+    <form action="{{ route('forum.store') }}" method="POST" class="bg-white p-6 rounded-2xl border shadow-sm">
         @csrf
         <div class="mb-4">
             <label class="block text-sm font-bold mb-2">Title</label>

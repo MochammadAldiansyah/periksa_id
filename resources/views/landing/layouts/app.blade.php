@@ -28,5 +28,6 @@
     @if(!request()->routeIs('login') && !request()->routeIs('register'))
         @include('landing.layouts.footer')
     @endif <script src="{{ asset('assets/js/main.js') }}"></script>
+    @stack('scripts')
 </body>
 </html>

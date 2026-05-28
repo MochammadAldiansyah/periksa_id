@@ -148,10 +148,24 @@ function openThreadModal(title, content, author, date, status) {
 function closeModal() { document.getElementById('threadModal').classList.add('hidden'); }
 
 // MODAL DOKTER (CARI DOKTER)
-window.bukaModalDetail = function(id, nama, spesialis) {
+window.bukaModalDetail = function(id, nama, spesialis, avatarUrl) {
     document.getElementById('modal-dokter-id').value = id;
     document.getElementById('modal-nama').innerText = nama;
     document.getElementById('modal-spesialis').innerText = spesialis;
+
+    const initialsEl = document.getElementById('modal-avatar-initials');
+    const imgEl = document.getElementById('modal-avatar-img');
+    if (avatarUrl && avatarUrl.trim() !== '') {
+        if (imgEl) { imgEl.src = avatarUrl; imgEl.classList.remove('hidden'); }
+        if (initialsEl) initialsEl.classList.add('hidden');
+    } else {
+        if (imgEl) imgEl.classList.add('hidden');
+        if (initialsEl) {
+            initialsEl.classList.remove('hidden');
+            initialsEl.innerText = nama ? nama.substring(0, 2).toUpperCase() : '';
+        }
+    }
+
     const container = document.getElementById('modal-container');
     container.classList.remove('hidden');
     container.classList.add('flex');
@@ -164,9 +178,9 @@ window.tutupModalDetail = function() {
 };
 
 // Cek Login
-window.cekDetail = function(id, nama, spesialis, isLogin) {
+window.cekDetail = function(id, nama, spesialis, avatarUrl, isLogin) {
     if (isLogin) {
-        window.bukaModalDetail(id, nama, spesialis);
+        window.bukaModalDetail(id, nama, spesialis, avatarUrl);
     } else {
         document.getElementById('login-warning-modal').classList.remove('hidden');
         document.getElementById('login-warning-modal').classList.add('flex');

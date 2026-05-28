@@ -3,8 +3,12 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 
 class JanjiTemu extends Model {
-    protected $fillable = ['user_id', 'dokter_id', 'tanggal', 'status'];
+    protected $fillable = ['user_id', 'dokter_id', 'keluhan', 'status', 'scheduled_date', 'scheduled_time', 'catatan_dokter'];
 
-    public function dokter() { return $this->belongsTo(Dokter::class); }
-    public function user() { return $this->belongsTo(User::class); }
-}   
+    protected $casts = [
+        'scheduled_date' => 'date',
+    ];
+
+    public function user() { return $this->belongsTo(User::class, 'user_id'); }
+    public function dokter() { return $this->belongsTo(User::class, 'dokter_id'); }
+}

@@ -67,6 +67,6 @@ public function store(Request $request)
         'status' => 'active',
     ]);
 
-    return redirect()->route('admin.forum.index')->with('success', 'Thread berhasil ditambahkan!');
+    return redirect()->route('forum.index')->with('success', 'Thread berhasil ditambahkan!');
 }
 }

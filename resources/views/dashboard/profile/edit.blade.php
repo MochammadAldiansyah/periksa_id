@@ -14,7 +14,11 @@
                 <div class="bg-white border border-slate-100 rounded-2xl p-6 text-center space-y-4 shadow-sm">
                     <div
                         class="relative w-24 h-24 mx-auto rounded-full bg-blue-50 border border-blue-100 font-bold text-[#0046A0] text-3xl flex items-center justify-center shadow-inner overflow-hidden">
-                        <span>{{ strtoupper(substr(auth()->user()->name, 0, 2)) }}</span>
+                        @if (auth()->user()->avatar)
+                            <img src="{{ asset('storage/' . auth()->user()->avatar) }}" alt="Profile Photo" class="w-full h-full object-cover">
+                        @else
+                            <span>{{ strtoupper(substr(auth()->user()->name, 0, 2)) }}</span>
+                        @endif
                     </div>
                     <div>
                         <h2 class="text-xl font-bold text-gray-900">{{ auth()->user()->name }}</h2>
@@ -79,10 +83,14 @@
                             class="flex items-center gap-5 p-4 bg-slate-50/50 rounded-xl border border-slate-100 w-full sm:w-max">
                             <div
                                 class="relative w-16 h-16 rounded-full bg-slate-200 flex items-center justify-center text-gray-400 shrink-0 overflow-hidden">
-                                <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 20 20">
-                                    <path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z"
-                                        clip-rule="evenodd"></path>
-                                </svg>
+                                @if (auth()->user()->avatar)
+                                    <img src="{{ asset('storage/' . auth()->user()->avatar) }}" alt="Profile Photo" class="w-full h-full object-cover">
+                                @else
+                                    <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 20 20">
+                                        <path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z"
+                                            clip-rule="evenodd"></path>
+                                    </svg>
+                                @endif
                             </div>
                             <div class="space-y-1">
                                 <label class="block text-xs font-bold text-gray-500 uppercase tracking-wider">Change
