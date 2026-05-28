@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('landing.layouts.app')
 @section('content')
 <div class="min-h-screen w-full flex flex-col md:flex-row bg-[#FAFAFA] font-sans antialiased">
 

@@ -12,7 +12,7 @@ class DokterManagementController extends Controller
     // Menampilkan halaman daftar & form tambah dokter
     public function create()
     {
-        return view('admin.dokter.create');
+        return view('dashboard.role.admin.manajemen_dokter.create');
     }
 
     // Memproses data dokter baru

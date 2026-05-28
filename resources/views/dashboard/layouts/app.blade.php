@@ -15,34 +15,22 @@
          <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
          <link rel="stylesheet" href="{{ asset('assets/css/main.css') }}">
     </head>
-    <body>
+    <body >
 @auth
-    @include('layouts.sidebar')
+    @include('dashboard.layouts.sidebar')
 @endauth
 
         <div>
-           @if(!request()->routeIs('login') && !request()->routeIs('register'))
-            @include('layouts.navbar')
-            @endif
-
-            {{-- <!-- Page Heading -->
-            @isset($header)
-                <header class="bg-white dark:bg-gray-800 shadow">
-                    <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
-                        {{ $header }}
-                    </div>
-                </header>
-            @endisset --}}
 
             <!-- Page Content -->
-            <main>
+            <main class="flex-1 lg:pl-64 p-6 md:p-8 w-full overflow-x-hidden">
                 @yield('content')
             </main>
         </div>
     </body>
   @if(!request()->routeIs('login') && !request()->routeIs('register'))
 
-    @include('layouts.footer')
+    @include('dashboard.layouts.footer')
     @endif)
     <script src="{{ asset('assets/js/main.js') }}"></script>
 </html>

@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('landing.layouts.app')
 
 @section('content')
 <section class="max-w-7xl mx-auto px-6 lg:px-8 pt-12 pb-16 grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
