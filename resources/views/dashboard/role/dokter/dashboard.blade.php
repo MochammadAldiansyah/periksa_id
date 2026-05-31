@@ -1,12 +1,12 @@
 @extends('dashboard.layouts.app')
 
 @section('content')
-<div class="flex-1 p-8 md:p-10 space-y-8 overflow-y-auto">
+<div class="flex-1 p-4 md:p-10 space-y-6 md:space-y-8 overflow-y-auto">
 
     {{-- Welcome Header --}}
     <div>
-        <h1 class="text-3xl font-bold text-gray-900 tracking-tight">Selamat Datang, {{ auth()->user()->name }}</h1>
-        <p class="text-sm text-gray-500 mt-1.5 font-medium">Ringkasan aktivitas hari ini, {{ now()->translatedFormat('d F Y') }}</p>
+        <h1 class="text-xl md:text-3xl font-bold text-gray-900 tracking-tight">Selamat Datang, {{ auth()->user()->name }}</h1>
+        <p class="text-xs md:text-sm text-gray-500 mt-1 md:mt-1.5 font-medium">Ringkasan aktivitas hari ini, {{ now()->translatedFormat('d F Y') }}</p>
     </div>
 
     {{-- Stats Cards --}}
@@ -58,7 +58,7 @@
     </div>
 
     {{-- Main Grid: Jadwal + Pending --}}
-    <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-5 md:gap-8 items-start">
 
         {{-- LEFT: Jadwal Hari Ini --}}
         <div class="lg:col-span-2 bg-white border border-slate-100 rounded-2xl shadow-sm overflow-hidden">
@@ -67,7 +67,7 @@
             </div>
             <div class="divide-y divide-slate-100">
                 @forelse($jadwalHariIni as $jadwal)
-                    <div class="p-5 flex items-center justify-between gap-4 hover:bg-slate-50/50 transition-all">
+                    <div class="p-4 md:p-5 flex flex-col sm:flex-row sm:items-center justify-between gap-3 md:gap-4 hover:bg-slate-50/50 transition-all">
                         <div class="flex items-center gap-4">
                             {{-- Avatar Initials --}}
                             <div class="w-11 h-11 rounded-full bg-slate-100 border border-slate-200 flex items-center justify-center text-sm font-bold text-gray-600 shrink-0">
@@ -91,6 +91,12 @@
                                 </div>
                             </div>
                         </div>
+                        <a href="{{ route('konsultasi.chat', $jadwal->id) }}" class="border-2 border-emerald-600 bg-emerald-600 text-white hover:bg-emerald-700 font-bold text-xs uppercase tracking-wider px-4 py-2 rounded-xl transition-all shadow-sm whitespace-nowrap flex items-center gap-2">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path>
+                            </svg>
+                            Mulai Konsultasi
+                        </a>
                     </div>
                 @empty
                     <div class="p-8 text-center">

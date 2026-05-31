@@ -4,8 +4,8 @@
     <div class="max-w-6xl mx-auto space-y-6">
 
         <div>
-            <h1 class="text-3xl font-bold text-gray-900 tracking-tight">Account Overview</h1>
-            <p class="text-sm text-gray-500 mt-1">Manage your personal details, and notification preferences securely.</p>
+            <h1 class="text-2xl md:text-3xl font-bold text-gray-900 tracking-tight">Account Overview</h1>
+            <p class="text-xs md:text-sm text-gray-500 mt-1">Manage your personal details, and notification preferences securely.</p>
         </div>
 
         <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 items-start">
@@ -116,6 +116,23 @@
                             </div>
                         </div>
 
+                        <div class="space-y-1.5">
+                            <label for="alamat" class="text-xs font-bold text-gray-700 uppercase">Alamat</label>
+                            <textarea id="alamat" name="alamat" rows="2" placeholder="Masukkan alamat lengkap Anda..."
+                                class="w-full bg-slate-50/50 border border-slate-200 rounded-xl px-4 py-3 text-sm text-gray-800 focus:outline-none focus:border-[#0046A0] focus:bg-white transition-all resize-none">{{ old('alamat', auth()->user()->alamat) }}</textarea>
+                        </div>
+
+                        @if(auth()->user()->hasRole('dokter'))
+                        <div class="space-y-1.5">
+                            <label for="lulusan" class="text-xs font-bold text-gray-700 uppercase">Gelar Kelulusan</label>
+                            <input type="text" id="lulusan" name="lulusan"
+                                value="{{ old('lulusan', auth()->user()->lulusan) }}"
+                                placeholder="Contoh: S1 Kedokteran Universitas Indonesia, Sp. Penyakit Dalam"
+                                class="w-full bg-slate-50/50 border border-slate-200 rounded-xl px-4 py-3 text-sm text-gray-800 focus:outline-none focus:border-[#0046A0] focus:bg-white transition-all">
+                            <p class="text-[11px] text-gray-400 mt-1">Informasi ini akan ditampilkan saat pasien melihat profil Anda.</p>
+                        </div>
+                        @endif
+
                         <div class="flex justify-end pt-4 border-t border-slate-50">
                             <button type="submit"
                                 class="bg-[#0046A0] hover:bg-blue-700 text-white font-bold text-xs uppercase tracking-wider px-6 py-3 rounded-xl transition-all shadow-sm shadow-blue-200">
@@ -171,7 +188,7 @@
                         @csrf
                         @method('PUT')
 
-                        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
 
                             <div class="space-y-1.5">
                                 <label for="current_password" class="text-xs font-bold text-gray-700 uppercase">Current

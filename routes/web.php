@@ -11,6 +11,7 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\FarmasiController;
+use App\Http\Controllers\KonsultasiController;
 use App\Models\JanjiTemu;
 use App\Models\Order;
 use Illuminate\Support\Facades\Route;
@@ -81,6 +82,9 @@ Route::middleware(['auth', 'role:pasien'])->prefix('pasien')->group(function () 
     Route::get('/dashboard', function () {
         return redirect()->route('dashboard');
     })->name('pasien.dashboard');
+
+    Route::get('/cek-gejala-ai', [\App\Http\Controllers\AIGejalaController::class, 'index'])->name('pasien.ai.index');
+    Route::post('/cek-gejala-ai/chat', [\App\Http\Controllers\AIGejalaController::class, 'chat'])->name('pasien.ai.chat');
 });
 
 // ROLE: ADMIN
@@ -158,6 +162,17 @@ Route::middleware(['auth'])->group(function () {
     // Pemesanan Obat
     Route::post('/orders', [OrderController::class, 'store'])->name('orders.store');
     Route::get('/orders/{order}/status', [OrderController::class, 'checkStatus'])->name('orders.status');
+
+    // Chat Konsultasi
+    Route::get('/konsultasi', [KonsultasiController::class, 'index'])->name('konsultasi.index');
+    Route::get('/konsultasi/{janjiTemu}', [KonsultasiController::class, 'chat'])->name('konsultasi.chat');
+    Route::get('/konsultasi/{janjiTemu}/fetch', [KonsultasiController::class, 'fetch'])->name('konsultasi.fetch');
+    Route::post('/konsultasi/{janjiTemu}/send', [KonsultasiController::class, 'send'])->name('konsultasi.send');
+    Route::put('/konsultasi/message/{message}', [KonsultasiController::class, 'updateMessage'])->name('konsultasi.message.update');
+    Route::delete('/konsultasi/message/{message}', [KonsultasiController::class, 'deleteMessage'])->name('konsultasi.message.destroy');
+
+    // Cari Dokter (Dashboard)
+    Route::get('/dashboard/cari-dokter', [CariDokterController::class, 'dashboardIndex'])->name('pasien.cari-dokter.index');
 });
     
 Route::get('/cari-dokter', [CariDokterController::class, 'index'])->name('cari-dokter.index'); 

@@ -21,7 +21,7 @@
                 </div>
             </div>
             
-         <button onclick="cekDetail({{ $dokter->id }}, '{{ addslashes($dokter->name) }}', '{{ $dokter->getRoleNames()->first() }}', '{{ $dokter->avatar ? asset('storage/' . $dokter->avatar) : '' }}', {{ auth()->check() ? 'true' : 'false' }})" 
+         <button onclick="cekDetail({{ $dokter->id }}, '{{ addslashes($dokter->name) }}', '{{ $dokter->getRoleNames()->first() }}', '{{ $dokter->avatar ? asset('storage/' . $dokter->avatar) : '' }}', {{ auth()->check() ? 'true' : 'false' }}, '{{ addslashes($dokter->alamat ?? '') }}', '{{ addslashes($dokter->lulusan ?? '') }}')" 
         class="w-full bg-[#0046A0] hover:bg-[#003780] text-white text-xs font-medium py-3 rounded-xl transition-all">
     Lihat Detail
 </button>
@@ -39,7 +39,7 @@
                 <button onclick="tutupModalDetail()" class="text-2xl text-gray-400">&times;</button>
             </div>
 
-            <div class="flex-1 p-6 space-y-6">
+            <div class="flex-1 p-6 space-y-6 overflow-y-auto">
                 <div class="flex items-center gap-5">
                     <div class="w-20 h-20 rounded-full bg-blue-50 border border-blue-100 flex items-center justify-center text-[#0046A0] font-bold text-3xl overflow-hidden shrink-0">
                         <span id="modal-avatar-initials"></span>
@@ -48,6 +48,23 @@
                     <div>
                         <h3 id="modal-nama" class="text-lg font-bold"></h3>
                         <p id="modal-spesialis" class="text-sm text-gray-600"></p>
+                    </div>
+                </div>
+
+                <div id="modal-info-section" class="space-y-4 hidden">
+                    <div id="modal-lulusan-wrap" class="hidden">
+                        <div class="flex items-center gap-2 mb-2">
+                            <svg class="w-4 h-4 text-[#0046A0]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l9-5-9-5-9 5 9 5z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z"></path></svg>
+                            <span class="text-xs font-bold text-gray-700 uppercase">Gelar Kelulusan</span>
+                        </div>
+                        <p id="modal-lulusan" class="text-sm text-gray-600 bg-blue-50 rounded-xl p-3 border border-blue-100"></p>
+                    </div>
+                    <div id="modal-alamat-wrap" class="hidden">
+                        <div class="flex items-center gap-2 mb-2">
+                            <svg class="w-4 h-4 text-[#0046A0]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                            <span class="text-xs font-bold text-gray-700 uppercase">Alamat Praktik</span>
+                        </div>
+                        <p id="modal-alamat" class="text-sm text-gray-600 bg-slate-50 rounded-xl p-3 border border-slate-100"></p>
                     </div>
                 </div>
             </div>

@@ -1,5 +1,25 @@
 document.addEventListener("DOMContentLoaded", function () {
 
+    // 0. GLOBAL LOADER (Tampil sekali per sesi saat pertama kali buka web)
+    window.addEventListener('load', function() {
+        const loader = document.getElementById('global-loader');
+        if (loader) {
+            if (!sessionStorage.getItem('loaderShown')) {
+                // Belum pernah tampil di sesi ini, jalankan animasi loading
+                setTimeout(() => {
+                    loader.style.opacity = '0';
+                    setTimeout(() => {
+                        loader.style.display = 'none';
+                        sessionStorage.setItem('loaderShown', 'true');
+                    }, 500);
+                }, 600);
+            } else {
+                // Sudah pernah tampil, sembunyikan seketika tanpa loading
+                loader.style.display = 'none';
+            }
+        }
+    });
+
     // 1. KODE TOGGLE MOBILE MENU (LANDING PAGE)
     const menuBtn = document.getElementById('mobile-menu-btn');
     const menu = document.getElementById('mobile-menu');
@@ -139,8 +159,8 @@ function openThreadModal(title, content, author, date, status) {
     document.getElementById('mDate').innerText = date;
     const statusEl = document.getElementById('mStatus');
     statusEl.innerText = status;
-    statusEl.className = status.toLowerCase() === 'active' 
-        ? 'bg-emerald-50 text-emerald-700 px-2 py-1 rounded text-[10px] font-bold uppercase' 
+    statusEl.className = status.toLowerCase() === 'active'
+        ? 'bg-emerald-50 text-emerald-700 px-2 py-1 rounded text-[10px] font-bold uppercase'
         : 'bg-red-50 text-red-700 px-2 py-1 rounded text-[10px] font-bold uppercase';
     document.getElementById('threadModal').classList.remove('hidden');
 }
@@ -148,7 +168,7 @@ function openThreadModal(title, content, author, date, status) {
 function closeModal() { document.getElementById('threadModal').classList.add('hidden'); }
 
 // MODAL DOKTER (CARI DOKTER)
-window.bukaModalDetail = function(id, nama, spesialis, avatarUrl) {
+window.bukaModalDetail = function(id, nama, spesialis, avatarUrl, alamat, lulusan) {
     document.getElementById('modal-dokter-id').value = id;
     document.getElementById('modal-nama').innerText = nama;
     document.getElementById('modal-spesialis').innerText = spesialis;
@@ -166,6 +186,36 @@ window.bukaModalDetail = function(id, nama, spesialis, avatarUrl) {
         }
     }
 
+    // Show/hide info sections
+    const infoSection = document.getElementById('modal-info-section');
+    const lulusanWrap = document.getElementById('modal-lulusan-wrap');
+    const alamatWrap = document.getElementById('modal-alamat-wrap');
+    const lulusanEl = document.getElementById('modal-lulusan');
+    const alamatEl = document.getElementById('modal-alamat');
+
+    let hasInfo = false;
+    if (lulusanWrap && lulusanEl) {
+        if (lulusan && lulusan.trim() !== '') {
+            lulusanEl.innerText = lulusan;
+            lulusanWrap.classList.remove('hidden');
+            hasInfo = true;
+        } else {
+            lulusanWrap.classList.add('hidden');
+        }
+    }
+    if (alamatWrap && alamatEl) {
+        if (alamat && alamat.trim() !== '') {
+            alamatEl.innerText = alamat;
+            alamatWrap.classList.remove('hidden');
+            hasInfo = true;
+        } else {
+            alamatWrap.classList.add('hidden');
+        }
+    }
+    if (infoSection) {
+        hasInfo ? infoSection.classList.remove('hidden') : infoSection.classList.add('hidden');
+    }
+
     const container = document.getElementById('modal-container');
     container.classList.remove('hidden');
     container.classList.add('flex');
@@ -178,9 +228,9 @@ window.tutupModalDetail = function() {
 };
 
 // Cek Login
-window.cekDetail = function(id, nama, spesialis, avatarUrl, isLogin) {
+window.cekDetail = function(id, nama, spesialis, avatarUrl, isLogin, alamat, lulusan) {
     if (isLogin) {
-        window.bukaModalDetail(id, nama, spesialis, avatarUrl);
+        window.bukaModalDetail(id, nama, spesialis, avatarUrl, alamat, lulusan);
     } else {
         document.getElementById('login-warning-modal').classList.remove('hidden');
         document.getElementById('login-warning-modal').classList.add('flex');

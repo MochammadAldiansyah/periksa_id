@@ -78,6 +78,12 @@ function openBuyModal(id, name, price, stock) {
     }, 300);
 }
 
+function openOutOfStockModal(name) {
+    document.getElementById('warningMedName').innerText = name;
+    document.getElementById('outOfStockModal').classList.remove('hidden');
+    document.getElementById('outOfStockModal').classList.add('flex');
+}
+
 function closeOutOfStockModal() {
     document.getElementById('outOfStockModal').classList.add('hidden');
     document.getElementById('outOfStockModal').classList.remove('flex');

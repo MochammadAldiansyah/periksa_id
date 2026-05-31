@@ -11,4 +11,6 @@ class JanjiTemu extends Model {
 
     public function user() { return $this->belongsTo(User::class, 'user_id'); }
     public function dokter() { return $this->belongsTo(User::class, 'dokter_id'); }
+
+    public function messages() { return $this->hasMany(Message::class, 'janji_temu_id'); }
 }

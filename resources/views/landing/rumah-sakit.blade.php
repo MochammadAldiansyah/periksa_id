@@ -3,15 +3,15 @@
 @section('content')
 <div class="bg-slate-50 pt-24 min-h-screen">
     <div class="container mx-auto px-6 py-8 h-[calc(100vh-6rem)]">
-        
+
         <div class="flex flex-col lg:flex-row h-full gap-6">
-            
+
             {{-- Sidebar List --}}
             <div class="w-full lg:w-1/3 bg-white rounded-2xl shadow-sm border border-slate-100 flex flex-col overflow-hidden h-[50vh] lg:h-full shrink-0">
                 <div class="p-5 border-b border-slate-100 shrink-0">
                     <h2 class="text-xl font-bold text-gray-900 mb-1">Rumah Sakit Terdekat</h2>
                     <p class="text-sm text-gray-500 mb-4" id="location-status">Mendeteksi lokasi Anda...</p>
-                    
+
                     <div class="relative">
                         <input type="text" id="hospital-search" placeholder="Cari nama fasilitas..." class="w-full pl-10 pr-4 py-2 border border-gray-200 rounded-xl text-sm focus:ring-[#0046A0] focus:border-[#0046A0]">
                         <svg class="w-5 h-5 text-gray-400 absolute left-3 top-2.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -19,7 +19,7 @@
                         </svg>
                     </div>
                 </div>
-                
+
                 <div class="flex-1 overflow-y-auto p-4 space-y-3" id="hospitals-list">
                     {{-- Skeleton Loader --}}
                     <div class="animate-pulse space-y-4" id="skeleton-loader">
@@ -33,14 +33,14 @@
                         </div>
                         @endfor
                     </div>
-                    
+
                     {{-- Dynamic content will be loaded here via JS --}}
                 </div>
             </div>
 
             {{-- Map Area --}}
             <div class="w-full lg:w-2/3 bg-white rounded-2xl shadow-sm border border-slate-100 overflow-hidden h-[50vh] lg:h-full relative">
-                
+
                 {{-- Permission Overlay --}}
                 <div id="permission-overlay" class="absolute inset-0 z-[1000] bg-white/90 backdrop-blur-sm flex flex-col items-center justify-center text-center p-6 transition-opacity duration-300">
                     <div class="w-16 h-16 bg-blue-100 text-[#0046A0] rounded-full flex items-center justify-center mb-4">

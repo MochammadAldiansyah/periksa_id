@@ -15,6 +15,8 @@
 </head>
 <body class="bg-[#F8FAFC]">
 
+    @include('components.loader')
+
     <div>
         @if(!request()->routeIs('login') && !request()->routeIs('register'))
             @include('landing.layouts.navbar')

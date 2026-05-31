@@ -36,9 +36,13 @@
   </div>
   <div class="border-t border-gray-50 max-w-7xl mx-auto px-6 lg:px-8 py-6 flex flex-col md:flex-row justify-between items-center gap-4 text-[11px] text-gray-400">
     <p>&copy; 2026 Periksa.id. Hak cipta dilindungi undang-undang.</p>
-    <div class="flex gap-4 text-sm">
-      <a href="#" class="hover:text-[#0046A0]">🌐</a>
-      <a href="#" class="hover:text-[#0046A0]">✉</a>
+    <div class="flex gap-4">
+      <a href="#" class="text-gray-400 hover:text-[#0046A0] transition-colors">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"></path></svg>
+      </a>
+      <a href="#" class="text-gray-400 hover:text-[#0046A0] transition-colors">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+      </a>
     </div>
   </div>
 </footer>

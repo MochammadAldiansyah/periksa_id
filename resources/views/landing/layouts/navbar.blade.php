@@ -3,22 +3,22 @@
     <div class="flex justify-between h-20 items-center">
 
       <div class="flex items-center gap-10">
-        <a href="#" class="text-3xl font-extrabold text-[#0046A0] tracking-tight">
+        <a href="{{ route('landing') }}" class="text-3xl font-extrabold text-[#0046A0] tracking-tight">
           Periksa<span class="text-[#0046A0]">.id</span>
         </a>
 
         <div class="hidden md:flex items-center gap-6 text-[15px] font-medium text-gray-600">
-          <a href="/" 
+          <a href="/"
              class="{{ request()->routeIs('home') || request()->path() == '/' ? 'text-[#0046A0] font-semibold border-b-2 border-[#0046A0]' : 'hover:text-[#0046A0]' }} pb-1 transition-all">
             Layanan
           </a>
-          
-          <a href="{{ route('cari-dokter.index') }}" 
+
+          <a href="{{ route('cari-dokter.index') }}"
              class="{{ request()->routeIs('cari-dokter.*') ? 'text-[#0046A0] font-semibold border-b-2 border-[#0046A0]' : 'hover:text-[#0046A0]' }} pb-1 transition-all">
             Cari Dokter
           </a>
-          
-          <a href="{{ route('rumah-sakit') }}" class="{{ request()->routeIs('rumah-sakit') || request()->path() == '/' ? 'text-[#0046A0] font-semibold border-b-2 border-[#0046A0]' : 'hover:text-[#0046A0]' }} pb-1 transition-all">Rumah Sakit</a>
+
+          <a href="{{ route('rumah-sakit') }}" class="{{  request()->routeIs('rumah-sakit') ? 'text-[#0046A0] font-semibold border-b-2 border-[#0046A0]' : 'hover:text-[#0046A0]' }} pb-1 transition-all">Rumah Sakit</a>
           <a href="#" class="hover:text-[#0046A0] transition-colors">Informasi Kesehatan</a>
         </div>
       </div>
@@ -61,12 +61,12 @@
 
   <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-100 px-4 pt-2 pb-6 space-y-3 shadow-lg">
     <a href="/" class="block px-3 py-2 rounded-lg transition-colors {{ request()->routeIs('home') || request()->path() == '/' ? 'text-[#0046A0] font-semibold bg-blue-50' : 'text-gray-600 hover:text-[#0046A0] hover:bg-gray-50' }}">Layanan</a>
-    
+
     <a href="{{ route('cari-dokter.index') }}" class="block px-3 py-2 rounded-lg transition-colors {{ request()->routeIs('cari-dokter.*') ? 'text-[#0046A0] font-semibold bg-blue-50' : 'text-gray-600 hover:text-[#0046A0] hover:bg-gray-50' }}">Cari Dokter</a>
-    
+
     <a href="{{ route('rumah-sakit') }}" class="block text-gray-600 hover:text-[#0046A0] hover:bg-gray-50 px-3 py-2 rounded-lg transition-colors">Rumah Sakit</a>
     <a href="#" class="block text-gray-600 hover:text-[#0046A0] hover:bg-gray-50 px-3 py-2 rounded-lg transition-colors">Informasi Kesehatan</a>
-    
+
     <div class="pt-4 border-t border-gray-100">
         @auth
             @if(auth()->user()->hasRole('admin'))

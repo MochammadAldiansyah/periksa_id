@@ -12,4 +12,11 @@ class CariDokterController extends Controller
 
         return view('landing.cari-dokter.index', compact('dokters'));
     }
+
+    public function dashboardIndex()
+    {
+        $dokters = User::role('dokter')->get();
+
+        return view('dashboard.role.pasien.cari-dokter', compact('dokters'));
+    }
 }

@@ -16,6 +16,9 @@
          <link rel="stylesheet" href="{{ asset('assets/css/main.css') }}">
     </head>
     <body >
+    
+    @include('components.loader')
+
 @auth
     @include('dashboard.layouts.sidebar')
 @endauth
@@ -23,7 +26,7 @@
         <div>
 
             <!-- Page Content -->
-            <main class="flex-1 lg:pl-64 p-6 md:p-8 w-full overflow-x-hidden">
+            <main class="flex-1 lg:pl-64 pt-20 px-4 pb-6 md:p-8 w-full overflow-x-hidden">
                 @yield('content')
             </main>
         </div>
