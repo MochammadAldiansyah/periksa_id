@@ -1,34 +1,24 @@
 /* ============================================
-   GLOBAL LOADER
+   GLOBAL LOADER 
    ============================================ */
-#global-loader {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 9999;
-    background: #ffffff;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    transition: opacity 0.5s ease;
-    overflow: hidden;
+@keyframes custom-bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-6px); }
+}
+
+.animate-loader-bounce {
+    animation: custom-bounce 1s infinite;
+}
+
+.delay-150ms {
+    animation-delay: 0.15s;
+}
+
+.delay-300ms {
+    animation-delay: 0.3s;
 }
 
 body.loading {
     overflow: hidden !important;
     height: 100vh !important;
-}
-
-#global-loader h1 {
-    font-size: 2rem;
-    text-align: center;
-}
-
-@media (min-width: 768px) {
-    #global-loader h1 {
-        font-size: 3rem;
-    }
 }

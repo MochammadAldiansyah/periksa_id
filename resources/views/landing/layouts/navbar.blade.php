@@ -19,7 +19,7 @@
           </a>
 
           <a href="{{ route('rumah-sakit') }}" class="{{  request()->routeIs('rumah-sakit') ? 'text-[#0046A0] font-semibold border-b-2 border-[#0046A0]' : 'hover:text-[#0046A0]' }} pb-1 transition-all">Rumah Sakit</a>
-          <a href="#" class="hover:text-[#0046A0] transition-colors">Informasi Kesehatan</a>
+          <a href="{{ route('informasi-kesehatan') }}" class="{{ request()->routeIs('informasi-kesehatan') ? 'text-[#0046A0] font-semibold border-b-2 border-[#0046A0]' : 'hover:text-[#0046A0]' }} pb-1 transition-all">Informasi Kesehatan</a>
         </div>
       </div>
 
@@ -65,7 +65,7 @@
     <a href="{{ route('cari-dokter.index') }}" class="block px-3 py-2 rounded-lg transition-colors {{ request()->routeIs('cari-dokter.*') ? 'text-[#0046A0] font-semibold bg-blue-50' : 'text-gray-600 hover:text-[#0046A0] hover:bg-gray-50' }}">Cari Dokter</a>
 
     <a href="{{ route('rumah-sakit') }}" class="block text-gray-600 hover:text-[#0046A0] hover:bg-gray-50 px-3 py-2 rounded-lg transition-colors">Rumah Sakit</a>
-    <a href="#" class="block text-gray-600 hover:text-[#0046A0] hover:bg-gray-50 px-3 py-2 rounded-lg transition-colors">Informasi Kesehatan</a>
+    <a href="{{ route('informasi-kesehatan') }}" class="block px-3 py-2 rounded-lg transition-colors {{ request()->routeIs('informasi-kesehatan') ? 'text-[#0046A0] font-semibold bg-blue-50' : 'text-gray-600 hover:text-[#0046A0] hover:bg-gray-50' }}">Informasi Kesehatan</a>
 
     <div class="pt-4 border-t border-gray-100">
         @auth

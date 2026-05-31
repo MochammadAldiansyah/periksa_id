@@ -35,9 +35,9 @@
             
             <div id="typing-indicator" class="hidden flex-col max-w-[75%] self-start items-start">
                 <div class="px-4 py-3 rounded-2xl shadow-sm bg-white border border-slate-100 text-gray-500 rounded-bl-none flex gap-1">
-                    <span class="w-2 h-2 bg-gray-400 rounded-full animate-bounce" style="animation-delay: 0ms"></span>
-                    <span class="w-2 h-2 bg-gray-400 rounded-full animate-bounce" style="animation-delay: 150ms"></span>
-                    <span class="w-2 h-2 bg-gray-400 rounded-full animate-bounce" style="animation-delay: 300ms"></span>
+                    <span class="w-2 h-2 bg-gray-400 rounded-full animate-bounce [animation-delay:0ms]"></span>
+                    <span class="w-2 h-2 bg-gray-400 rounded-full animate-bounce [animation-delay:150ms]"></span>
+                    <span class="w-2 h-2 bg-gray-400 rounded-full animate-bounce [animation-delay:300ms]"></span>
                 </div>
             </div>
         </div>
@@ -46,7 +46,7 @@
         <div class="p-4 bg-white border-t border-slate-100">
             <form id="chat-form" class="flex items-end gap-3">
                 <div class="flex-grow relative">
-                    <textarea id="chat-input" rows="1" placeholder="Ceritakan keluhan Anda..." required class="w-full bg-slate-50 border border-slate-200 rounded-2xl py-3 pl-4 pr-4 text-sm focus:ring-indigo-500 focus:border-indigo-500 resize-none scrollbar-hide max-h-32 min-h-[44px]" style="height: 44px; overflow-y:hidden;" oninput="this.style.height = ''; this.style.height = this.scrollHeight + 'px'"></textarea>
+                    <textarea id="chat-input" rows="1" placeholder="Ceritakan keluhan Anda..." required class="w-full bg-slate-50 border border-slate-200 rounded-2xl py-3 pl-4 pr-4 text-sm focus:ring-indigo-500 focus:border-indigo-500 resize-none scrollbar-hide max-h-32 min-h-[44px] h-[44px] overflow-y-hidden" oninput="this.style.height = ''; this.style.height = this.scrollHeight + 'px'"></textarea>
                 </div>
                 <button type="submit" id="btn-send" class="w-11 h-11 shrink-0 bg-indigo-600 hover:bg-indigo-800 text-white rounded-full flex items-center justify-center transition-transform hover:scale-105 shadow-sm disabled:opacity-50 disabled:cursor-not-allowed">
                     <svg class="w-5 h-5 -ml-1 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"></path></svg>

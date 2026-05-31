@@ -62,7 +62,7 @@
         
         <form id="chat-form" class="flex items-end gap-3 flex-grow">
             <div class="flex-grow relative">
-                <textarea id="chat-input" rows="1" placeholder="Ketik pesan konsultasi Anda di sini..." class="w-full bg-slate-50 border border-slate-200 rounded-2xl py-3 pl-4 pr-12 text-sm focus:ring-[#0046A0] focus:border-[#0046A0] resize-none scrollbar-hide max-h-32 min-h-[44px]" style="height: 44px; overflow-y:hidden;" oninput="this.style.height = ''; this.style.height = this.scrollHeight + 'px'"></textarea>
+                <textarea id="chat-input" rows="1" placeholder="Ketik pesan konsultasi Anda di sini..." class="w-full bg-slate-50 border border-slate-200 rounded-2xl py-3 pl-4 pr-12 text-sm focus:ring-[#0046A0] focus:border-[#0046A0] resize-none scrollbar-hide max-h-32 min-h-[44px] h-[44px] overflow-y-hidden" oninput="this.style.height = ''; this.style.height = this.scrollHeight + 'px'"></textarea>
             </div>
             <button type="submit" id="btn-send" class="w-11 h-11 shrink-0 bg-[#0046A0] hover:bg-blue-800 text-white rounded-full flex items-center justify-center transition-transform hover:scale-105 shadow-sm disabled:opacity-50 disabled:cursor-not-allowed">
                 <svg class="w-5 h-5 -ml-1 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"></path></svg>

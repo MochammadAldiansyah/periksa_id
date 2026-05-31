@@ -118,7 +118,7 @@
                                         <span>📍 Live Tracking Kurir</span>
                                         <span class="animate-pulse">● Live</span>
                                     </div>
-                                    <div id="map-{{ $order->id }}" style="height: 200px; width: 100%; z-index: 0;"></div>
+                                    <div id="map-{{ $order->id }}" class="h-[200px] w-full z-0"></div>
                                 </div>
                             </div>
                         @endforeach

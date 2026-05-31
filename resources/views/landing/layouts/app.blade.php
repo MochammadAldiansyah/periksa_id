@@ -40,7 +40,9 @@
 </head>
 <body class="bg-[#F8FAFC]">
 
-    @include('components.loader')
+    @if(!$errors->any())
+        @include('components.loader')
+    @endif
 
     <div>
         @if(!request()->routeIs('login') && !request()->routeIs('register'))

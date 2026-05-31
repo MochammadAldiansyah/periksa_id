@@ -4,7 +4,7 @@
 <div class="min-h-screen w-full flex flex-col md:flex-row bg-[#FAFAFA] font-sans antialiased">
 
     <div class="hidden md:flex md:w-1/2 bg-[#0046A0] relative items-center justify-center p-12 text-white overflow-hidden">
-        <div class="absolute inset-0 opacity-10 bg-cover bg-center mix-blend-overlay" style="background-image: url('https://images.unsplash.com/photo-1576091160550-2173dba999ef?q=80&w=1000');"></div>
+        <div class="absolute inset-0 opacity-10 bg-cover bg-center mix-blend-overlay bg-[url('https://images.unsplash.com/photo-1576091160550-2173dba999ef?q=80&w=1000')]"></div>
 
         <div class="relative z-10 max-w-md text-center space-y-6 flex flex-col items-center">
             <div class="w-16 h-16 bg-white rounded-2xl flex items-center justify-center shadow-lg">

@@ -11,6 +11,7 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\FarmasiController;
+use App\Http\Controllers\InformasiKesehatanController;
 use App\Http\Controllers\KonsultasiController;
 use App\Models\JanjiTemu;
 use App\Models\Order;
@@ -26,6 +27,7 @@ Route::get('/', function () {
 Route::get('/landing', [LandingController::class, 'landing'])->name('landing');
 Route::get('/login', [LoginController::class, 'login'])->name('login');
 Route::get('/rumah-sakit', [RumahSakitController::class, 'index'])->name('rumah-sakit');
+Route::get('/informasi-kesehatan', [InformasiKesehatanController::class, 'informasiKesehatan'])->name('informasi-kesehatan');
 
 // GLOBAL AUTHENTICATED ROUTES (BISA DIAKSES SEMUA ROLE SETELAH LOGIN)
 
@@ -150,7 +152,7 @@ Route::middleware(['auth', 'role:dokter'])->prefix('dokter')->group(function () 
 
 Route::middleware(['auth'])->group(function () {
     Route::post('/janji-temu/store', [JanjiTemuController::class, 'store'])->name('janji.store');
-    
+
     // Forum routes for all authenticated users
     Route::get('/forum', [ForumController::class, 'index'])->name('forum.index');
     Route::get('/forum/create', [ForumController::class, 'create'])->name('forum.create');
@@ -174,8 +176,8 @@ Route::middleware(['auth'])->group(function () {
     // Cari Dokter (Dashboard)
     Route::get('/dashboard/cari-dokter', [CariDokterController::class, 'dashboardIndex'])->name('pasien.cari-dokter.index');
 });
-    
-Route::get('/cari-dokter', [CariDokterController::class, 'index'])->name('cari-dokter.index'); 
-    
+
+Route::get('/cari-dokter', [CariDokterController::class, 'index'])->name('cari-dokter.index');
+
 
 require __DIR__.'/auth.php';

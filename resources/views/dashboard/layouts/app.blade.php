@@ -40,7 +40,7 @@
          <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
          <link rel="stylesheet" href="{{ asset('assets/css/main.css') }}">
     </head>
-    <body >
+    <body>
 
 @auth
     @include('dashboard.layouts.sidebar')
