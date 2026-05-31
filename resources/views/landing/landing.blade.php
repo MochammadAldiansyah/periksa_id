@@ -3,7 +3,7 @@
 @section('content')
   {{-- HERO SECTION --}}
   <section class="max-w-7xl mx-auto px-6 lg:px-8 pt-16 pb-20 grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
-    <div class="space-y-7">
+    <div class="space-y-7" data-aos="fade-right">
       <span class="inline-flex items-center gap-2  text-[#0046A0] text-xs font-bold px-4 py-2 rounded-full tracking-wide">
         <span class="w-2 h-2 bg-[#0046A0] rounded-full animate-pulse"></span>
         Platform Kesehatan #1 di Indonesia
@@ -49,12 +49,15 @@
           <p class="text-xs text-gray-400 font-medium mt-0.5">Dipercaya oleh <span class="font-bold text-gray-600">1 Juta+</span> Pasien</p>
         </div>
       </div>
-      </div>
+    </div>
+    
+    <div class="flex justify-center md:justify-end" data-aos="fade-left" data-aos-delay="200">
+      <img src="{{ asset('assets/images/hero_img.jpg') }}" alt="Periksa.id Hero" class="w-full max-w-md md:max-w-xl lg:max-w-2xl object-contain">
     </div>
   </section>
 
   {{-- STATS BAR --}}
-  <section class=" border-y border-gray-100">
+  <section class="border-y border-gray-100" data-aos="fade-up">
     <div class="max-w-7xl mx-auto px-6 lg:px-8 py-12 grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
       <div class="space-y-1">
         <div class="w-12 h-12  text-[#0046A0] rounded-2xl flex items-center justify-center mx-auto mb-2">
@@ -88,7 +91,7 @@
   </section>
 
   {{-- SERVICES SECTION --}}
-  <section class="max-w-7xl mx-auto px-6 lg:px-8 py-24">
+  <section class="max-w-7xl mx-auto px-6 lg:px-8 py-24" data-aos="fade-up">
     <div class="text-center max-w-xl mx-auto space-y-3 mb-16">
       <span class="inline-flex items-center gap-1.5 text-indigo-600 text-[11px] font-bold px-3 py-1.5 rounded-full uppercase tracking-wider">Fitur Unggulan</span>
       <h2 class="text-3xl lg:text-4xl font-extrabold text-gray-900 tracking-tight">Layanan Terpadu dalam Satu Genggaman</h2>
@@ -97,7 +100,7 @@
     <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
 
       {{-- Card 1: Chat Dokter 24/7 (Large) --}}
-      <div class="lg:col-span-2 bg-white rounded-3xl p-8 border border-gray-100 shadow-sm flex flex-col md:flex-row gap-8 justify-between overflow-hidden relative group hover:shadow-lg transition-shadow">
+      <div class="lg:col-span-2 bg-white rounded-3xl p-8 border border-gray-100 shadow-sm flex flex-col md:flex-row gap-8 justify-between overflow-hidden relative group hover:shadow-lg transition-shadow" data-aos="fade-up" data-aos-delay="100">
         <div class="space-y-5 max-w-sm flex flex-col justify-between">
           <div class="space-y-4">
             <div class="w-12 h-12 text-[#0046A0] rounded-2xl flex items-center justify-center">
@@ -118,7 +121,7 @@
       </div>
 
       {{-- Card 2: AI Symptom Checker --}}
-      <div class="bg-gradient-to-b from-indigo-50 to-white rounded-3xl p-8 border border-indigo-100/80 shadow-sm flex flex-col justify-between group hover:shadow-lg transition-shadow">
+      <div class="bg-gradient-to-b from-indigo-50 to-white rounded-3xl p-8 border border-indigo-100/80 shadow-sm flex flex-col justify-between group hover:shadow-lg transition-shadow" data-aos="fade-up" data-aos-delay="200">
         <div class="space-y-4">
           <div class="w-12 h-12 bg-indigo-600 text-white rounded-2xl flex items-center justify-center shadow-lg shadow-indigo-200">
             <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path></svg>
@@ -134,7 +137,7 @@
       </div>
 
       {{-- Card 3: Resep Digital --}}
-      <div class="bg-white rounded-3xl p-7 border border-gray-100 shadow-sm space-y-4 group hover:shadow-lg transition-shadow">
+      <div class="bg-white rounded-3xl p-7 border border-gray-100 shadow-sm space-y-4 group hover:shadow-lg transition-shadow" data-aos="fade-up" data-aos-delay="300">
         <div class="w-12 h-12  text-emerald-600 rounded-2xl flex items-center justify-center">
           <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"></path></svg>
         </div>
@@ -143,7 +146,7 @@
       </div>
 
       {{-- Card 4: Forum Kesehatan --}}
-      <div class="bg-white rounded-3xl p-7 border border-gray-100 shadow-sm space-y-4 group hover:shadow-lg transition-shadow">
+      <div class="bg-white rounded-3xl p-7 border border-gray-100 shadow-sm space-y-4 group hover:shadow-lg transition-shadow" data-aos="fade-up" data-aos-delay="400">
         <div class="w-12 h-12  text-amber-600 rounded-2xl flex items-center justify-center">
           <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8h2a2 2 0 012 2v6a2 2 0 01-2 2h-2v4l-4-4H9a1.994 1.994 0 01-1.414-.586m0 0L11 14h4a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2v4l.586-.586z"></path></svg>
         </div>
@@ -152,7 +155,7 @@
       </div>
 
       {{-- Card 5: Integrasi Peta --}}
-      <div class="bg-[#0046A0] rounded-3xl p-7 text-white shadow-sm flex flex-col justify-between relative overflow-hidden group hover:shadow-lg transition-shadow">
+      <div class="bg-[#0046A0] rounded-3xl p-7 text-white shadow-sm flex flex-col justify-between relative overflow-hidden group hover:shadow-lg transition-shadow" data-aos="fade-up" data-aos-delay="500">
         <div class="space-y-4 z-10">
         <div class="w-12 h-12 bg-white/15 backdrop-blur-sm rounded-2xl flex items-center justify-center">
   <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
@@ -176,7 +179,7 @@
   </section>
 
   {{-- TESTIMONIALS --}}
-  <section class="max-w-7xl mx-auto px-6 lg:px-8 py-16">
+  <section class="max-w-7xl mx-auto px-6 lg:px-8 py-16" data-aos="fade-up">
     <div class="bg-gradient-to-br from-slate-50 to-white rounded-3xl border border-gray-100 px-8 py-14">
       <div class="text-center space-y-3 mb-12">
         <span class="inline-flex items-center gap-1.5 text-emerald-600 text-[11px] font-bold px-3 py-1.5 rounded-full uppercase tracking-wider">Testimoni</span>
@@ -247,7 +250,7 @@
   </section>
 
   {{-- CTA SECTION --}}
-  <section class="max-w-7xl mx-auto px-6 lg:px-8 pb-24">
+  <section class="max-w-7xl mx-auto px-6 lg:px-8 pb-24" data-aos="fade-up">
     <div class="bg-gradient-to-r from-[#0046A0] to-indigo-600 rounded-3xl p-10 md:p-16 flex flex-col md:flex-row items-center justify-between gap-8 relative overflow-hidden">
       <div class="space-y-4 z-10">
         <h2 class="text-2xl md:text-3xl font-extrabold text-white tracking-tight">Mulai Perjalanan Kesehatan Digital Anda</h2>

@@ -1,0 +1,34 @@
+/* ============================================
+   GLOBAL LOADER
+   ============================================ */
+#global-loader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 9999;
+    background: #ffffff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transition: opacity 0.5s ease;
+    overflow: hidden;
+}
+
+body.loading {
+    overflow: hidden !important;
+    height: 100vh !important;
+}
+
+#global-loader h1 {
+    font-size: 2rem;
+    text-align: center;
+}
+
+@media (min-width: 768px) {
+    #global-loader h1 {
+        font-size: 3rem;
+    }
+}

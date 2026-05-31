@@ -43,7 +43,7 @@
 
                 {{-- Permission Overlay --}}
                 <div id="permission-overlay" class="absolute inset-0 z-[1000] bg-white/90 backdrop-blur-sm flex flex-col items-center justify-center text-center p-6 transition-opacity duration-300">
-                    <div class="w-16 h-16 bg-blue-100 text-[#0046A0] rounded-full flex items-center justify-center mb-4">
+                    <div class="w-16 h-16  text-[#0046A0] rounded-full flex items-center justify-center mb-4">
                         <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>

@@ -1,20 +1,17 @@
 {{-- Global Loading Screen --}}
-<div id="global-loader" class="fixed inset-0 z-[9999] bg-white flex flex-col items-center justify-center transition-opacity duration-500">
-    <div class="relative flex flex-col items-center justify-center">
-        {{-- Logo Text --}}
-        <h1 class="relative z-10 text-4xl md:text-5xl font-extrabold text-[#0046A0] tracking-tight">
-            Periksa<span class="text-blue-500">.id</span>
+<div id="global-loader" style="position:fixed;top:0;left:0;width:100%;height:100%;z-index:9999;background:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;transition:opacity 0.5s ease;overflow:hidden;">
+    <div style="display:flex;flex-direction:column;align-items:center;justify-content:center;">
+        <h1 style="font-size:clamp(1.75rem, 5vw, 3rem);font-weight:800;color:#0046A0;letter-spacing:-0.025em;margin:0;">
+            Periksa<span style="color:#3b82f6;">.id</span>
         </h1>
-        <div class="mt-4 flex gap-1.5 z-10">
-            <div class="w-2.5 h-2.5 bg-[#0046A0] rounded-full animate-bounce" style="animation-delay: 0s;"></div>
-            <div class="w-2.5 h-2.5 bg-blue-500 rounded-full animate-bounce" style="animation-delay: 0.15s;"></div>
-            <div class="w-2.5 h-2.5 bg-[#0046A0] rounded-full animate-bounce" style="animation-delay: 0.3s;"></div>
+        <div style="margin-top:1rem;display:flex;gap:0.375rem;">
+            <div style="width:0.625rem;height:0.625rem;background:#0046A0;border-radius:9999px;animation:bounce 1s infinite;" class="animate-bounce"></div>
+            <div style="width:0.625rem;height:0.625rem;background:#3b82f6;border-radius:9999px;animation:bounce 1s infinite;animation-delay:0.15s;" class="animate-bounce"></div>
+            <div style="width:0.625rem;height:0.625rem;background:#0046A0;border-radius:9999px;animation:bounce 1s infinite;animation-delay:0.3s;" class="animate-bounce"></div>
         </div>
     </div>
 </div>
-<script>
-    // Hide immediately before page finishes loading if already shown
-    if (sessionStorage.getItem('loaderShown')) {
-        document.getElementById('global-loader').style.display = 'none';
-    }
-</script>
+<style>
+    @keyframes bounce{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
+    body.loading{overflow:hidden!important;height:100vh!important}
+</style>

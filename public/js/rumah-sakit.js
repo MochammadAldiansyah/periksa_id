@@ -38,14 +38,14 @@ document.addEventListener('DOMContentLoaded', function() {
             position => {
                 const lat = position.coords.latitude;
                 const lng = position.coords.longitude;
-                
+
                 // Hide overlay
                 overlay.style.opacity = '0';
                 setTimeout(() => { overlay.classList.add('hidden'); }, 300);
 
                 // Update Map
                 map.setView([lat, lng], 14);
-                
+
                 // Add user marker
                 const userIcon = L.icon({
                     iconUrl: 'https://cdn-icons-png.flaticon.com/512/149/149059.png', // Default user marker
@@ -81,8 +81,8 @@ document.addEventListener('DOMContentLoaded', function() {
     // Fetch from Overpass API
     function fetchHospitals(lat, lng) {
         // Radius in meters (e.g., 5000 = 5km)
-        const radius = 5000; 
-        
+        const radius = 5000;
+
         // Overpass QL to get hospitals and clinics
         const query = `
             [out:json][timeout:25];
@@ -94,14 +94,14 @@ document.addEventListener('DOMContentLoaded', function() {
             );
             out center;
         `;
-        
+
         const url = `https://overpass-api.de/api/interpreter?data=${encodeURIComponent(query)}`;
-        
+
         fetch(url)
         .then(res => res.json())
         .then(data => {
             skeletonLoader.classList.add('hidden');
-            
+
             if (!data.elements || data.elements.length === 0) {
                 statusText.innerText = `Tidak ada rumah sakit ditemukan dalam radius ${radius/1000}km.`;
                 listContainer.innerHTML += `<div class="text-center p-6 text-gray-500">Gagal menemukan fasilitas terdekat. Coba geser peta atau perbesar area.</div>`;
@@ -116,7 +116,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 const elLon = el.lon || el.center.lon;
                 const name = el.tags.name || (el.tags.amenity === 'clinic' ? 'Klinik Tanpa Nama' : 'Rumah Sakit Tanpa Nama');
                 const distance = calculateDistance(lat, lng, elLat, elLon);
-                
+
                 return {
                     id: el.id,
                     name: name,
@@ -143,7 +143,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     function renderMarkers(hospitals) {
         hospitalMarkers.clearLayers();
-        
+
         const hospitalIcon = L.icon({
             iconUrl: 'https://cdn-icons-png.flaticon.com/512/2830/2830310.png', // Medical icon
             iconSize: [32, 32],
@@ -178,7 +178,7 @@ document.addEventListener('DOMContentLoaded', function() {
             const div = document.createElement('div');
             div.className = 'hospital-item p-3 border border-slate-100 rounded-xl hover:bg-slate-50 cursor-pointer transition-colors flex gap-3 items-start';
             div.innerHTML = `
-                <div class="w-10 h-10 bg-blue-100 text-[#0046A0] rounded-lg shrink-0 flex items-center justify-center font-bold">
+                <div class="w-10 h-10  text-[#0046A0] rounded-lg shrink-0 flex items-center justify-center font-bold">
                     <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path>
                     </svg>
@@ -216,13 +216,13 @@ document.addEventListener('DOMContentLoaded', function() {
         const R = 6371; // Radius of the earth in km
         const dLat = deg2rad(lat2 - lat1);
         const dLon = deg2rad(lon2 - lon1);
-        const a = 
+        const a =
             Math.sin(dLat/2) * Math.sin(dLat/2) +
-            Math.cos(deg2rad(lat1)) * Math.cos(deg2rad(lat2)) * 
+            Math.cos(deg2rad(lat1)) * Math.cos(deg2rad(lat2)) *
             Math.sin(dLon/2) * Math.sin(dLon/2)
-            ; 
-        const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a)); 
-        const d = R * c; 
+            ;
+        const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
+        const d = R * c;
         return d;
     }
 

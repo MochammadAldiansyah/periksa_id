@@ -1,22 +1,20 @@
 document.addEventListener("DOMContentLoaded", function () {
 
-    // 0. GLOBAL LOADER (Tampil sekali per sesi saat pertama kali buka web)
+    // 0. GLOBAL LOADER (Tampil setiap kali buka/pindah page)
+    const loader = document.getElementById('global-loader');
+    if (loader) {
+        document.body.classList.add('loading');
+    }
+
     window.addEventListener('load', function() {
-        const loader = document.getElementById('global-loader');
         if (loader) {
-            if (!sessionStorage.getItem('loaderShown')) {
-                // Belum pernah tampil di sesi ini, jalankan animasi loading
+            setTimeout(() => {
+                loader.style.opacity = '0';
                 setTimeout(() => {
-                    loader.style.opacity = '0';
-                    setTimeout(() => {
-                        loader.style.display = 'none';
-                        sessionStorage.setItem('loaderShown', 'true');
-                    }, 500);
-                }, 600);
-            } else {
-                // Sudah pernah tampil, sembunyikan seketika tanpa loading
-                loader.style.display = 'none';
-            }
+                    loader.style.display = 'none';
+                    document.body.classList.remove('loading');
+                }, 500);
+            }, 600);
         }
     });
 

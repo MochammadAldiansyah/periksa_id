@@ -16,8 +16,6 @@
          <link rel="stylesheet" href="{{ asset('assets/css/main.css') }}">
     </head>
     <body >
-    
-    @include('components.loader')
 
 @auth
     @include('dashboard.layouts.sidebar')
