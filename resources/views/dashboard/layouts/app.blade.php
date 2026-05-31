@@ -4,7 +4,32 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="csrf-token" content="{{ csrf_token() }}">
 
-        <title></title>
+       <title>Periksa.id - Layanan Kesehatan Pintar</title>
+  <meta name="title" content="Periksa.id - Platform Medical Checkup Terpercaya & Terverifikasi" />
+  <meta name="description" content="Periksa.id adalah platform medical checkup terintegrasi untuk menemukan dokter, melakukan konsultasi kesehatan, cek gejala dengan AI, dan menemukan apotek terdekat secara mudah dan aman." />
+  <meta name="keywords" content="medical checkup, konsultasi dokter online, cek gejala AI, apotek terdekat, rumah sakit terdekat, kesehatan digital, platform kesehatan Indonesia, telemedicine" />
+  <meta name="author" content="Periksa.id" />
+  <meta name="robots" content="index, follow" />
+
+  <!--Facebook -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="#" />
+  <meta property="og:title" content="Periksa.id - Platform Medical Checkup Terpercaya & Terverifikasi" />
+  <meta property="og:description" content="Periksa.id adalah platform medical checkup terintegrasi untuk menemukan dokter, melakukan konsultasi kesehatan, cek gejala dengan AI, dan menemukan apotek terdekat secara mudah dan aman." />
+  <meta property="og:image" content="#" />
+  <meta property="og:image:alt" content="Periksa.id Logo" />
+  <meta property="og:image:type" content="image/png" />
+
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image" />
+  <meta property="twitter:url" content="#" />
+  <meta property="twitter:title" content="Periksa.id - Platform Medical Checkup Terpercaya & Terverifikasi" />
+  <meta property="twitter:description" content="Platform kesehatan digital terintegrasi dengan AI gejala, konsultasi dokter, dan pencarian apotek & rumah sakit terdekat." />
+  <meta property="twitter:image" content="#" />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="#" />
+  <link rel="shortcut icon" href="#" type="image/x-icon" />
 
         <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.bunny.net">

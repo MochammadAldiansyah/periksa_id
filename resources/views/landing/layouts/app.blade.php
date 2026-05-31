@@ -5,6 +5,30 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>Periksa.id - Layanan Kesehatan Pintar</title>
+    <meta name="title" content="Periksa.id - Platform Medical Checkup Terpercaya & Terverifikasi" />
+    <meta name="description" content="Periksa.id adalah platform medical checkup terintegrasi untuk menemukan dokter, melakukan konsultasi kesehatan, cek gejala dengan AI, dan menemukan apotek terdekat secara mudah dan aman." />
+    <meta name="keywords" content="medical checkup, konsultasi dokter online, cek gejala AI, apotek terdekat, rumah sakit terdekat, kesehatan digital, platform kesehatan Indonesia, telemedicine" />
+    <meta name="author" content="Periksa.id" />
+    <meta name="robots" content="index, follow" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="#" />
+    <meta property="og:title" content="Periksa.id - Platform Medical Checkup Terpercaya & Terverifikasi" />
+    <meta property="og:description" content="Periksa.id adalah platform medical checkup terintegrasi untuk menemukan dokter, melakukan konsultasi kesehatan, cek gejala dengan AI, dan menemukan apotek terdekat secara mudah dan aman." />
+    <meta property="og:image" content="#" />
+    <meta property="og:image:alt" content="Periksa.id Logo" />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="#" />
+    <meta property="twitter:title" content="Periksa.id - Platform Medical Checkup Terpercaya & Terverifikasi" />
+    <meta property="twitter:description" content="Platform kesehatan digital terintegrasi dengan AI gejala, konsultasi dokter, dan pencarian apotek & rumah sakit terdekat." />
+    <meta property="twitter:image" content="#" />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="#" />
+    <link rel="shortcut icon" href="#" type="image/x-icon" />
 
     <link rel="preconnect" href="https://fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
@@ -22,7 +46,7 @@
         @if(!request()->routeIs('login') && !request()->routeIs('register'))
             @include('landing.layouts.navbar')
         @endif
-        
+
         <main>
             @yield('content')
         </main>
